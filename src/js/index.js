@@ -1,9 +1,8 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getMovieList, getMovieDetails } from './api';
 import addToFavorite from './addMovie';
 import removeFromfavorite from './removeMovie';
 import { renderMovieList } from './helper';
-
-import '../style/style.css';
 
 const movieListElement = document.querySelector('.movie-list');
 const searchForm = document.querySelector('.js-search-form');
@@ -24,6 +23,11 @@ async function handleSearch(event) {
 
   try {
     const response = await getMovieList(searchValue);
+    if (response.Error === 'Movie not found!') {
+      Notify.failure(`${response.Error} Please try again.`);
+      return;
+    }
+
     const movieIds = response.Search.map(item => item.imdbID);
     const movieList = await getMovieDetails(movieIds);
 
