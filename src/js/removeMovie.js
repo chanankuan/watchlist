@@ -1,4 +1,4 @@
-import swal from 'sweetalert2';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { KEY_LS } from './refs';
 import { setToLocalStorage } from './helper';
 
@@ -8,12 +8,5 @@ export default function removeFromfavorite(event) {
 
   watchList = watchList.filter(id => id !== movieId);
   setToLocalStorage(watchList);
-  swal.fire({
-    position: 'top-end',
-    heightAuto: 100,
-    icon: 'success',
-    title: 'Movie has been removed from your watchlist',
-    showConfirmButton: false,
-    timer: 1500,
-  });
+  Notify.success('Movie has been removed from your watchlist');
 }
