@@ -1,14 +1,13 @@
 import axios from 'axios';
-import { API_KEY, BASE_URL } from './refs';
+import { BASE_URL, apiKey } from './refs';
 
 // BASE_URL = 'https://www.omdbapi.com';
-// API_KEY = '31330ed';
 
 axios.defaults.baseURL = BASE_URL;
 
 export async function getMovieList(searchQuery) {
   const params = new URLSearchParams({
-    apikey: API_KEY,
+    apikey: apiKey,
     s: searchQuery,
   });
 
@@ -19,7 +18,7 @@ export async function getMovieList(searchQuery) {
 export async function getMovieDetails(movieIds) {
   const arrayOfPromises = movieIds.map(async movieId => {
     const params = new URLSearchParams({
-      apikey: API_KEY,
+      apikey: apiKey,
       i: movieId,
     });
 
