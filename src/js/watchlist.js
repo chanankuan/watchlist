@@ -26,10 +26,8 @@ favMovieListElement.addEventListener('click', event => {
     const watchList = JSON.parse(localStorage.getItem(KEY_LS)) || [];
     getMovieDetails(watchList)
       .then(result => {
-        if (result.length > 0) {
-          favMovieListElement.innerHTML = renderMovieList(result);
-          isEmpty.classList.add('hidden');
-        }
+        favMovieListElement.innerHTML = renderMovieList(result);
+        isEmpty.classList.add('hidden');
       })
       .catch(err => {
         console.error(err);
