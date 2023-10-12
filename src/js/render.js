@@ -60,26 +60,28 @@ export function renderPagination(currentPage, array) {
   return `
     <ul class="pagination">
       <li class="page-item">
-        <a class="page-link" aria-label="Previous" data-page=${currentPage - 1}>
-          <span aria-hidden="true">&laquo;</span>
-          <span class="sr-only"></span>
+        <a class="page-link ${
+          currentPage === 1 ? 'disabled' : 'js-page-link'
+        }" aria-label="Previous" data-page=${currentPage - 1}>
+          &laquo;
         </a>
       </li>
       ${array
         .map(
           value => `
           <li class="page-item">
-            <a class="page-link ${
-              currentPage === value ? 'current' : ''
-            }" data-page="${value}">${value}</a>
+            <a class="page-link js-page-link ${
+              currentPage === value ? 'active' : ''
+            }" data-page=${value}>${value}</a>
           </li>
         `
         )
         .join('')}
       <li class="page-item">
-        <a class="page-link" aria-label="Next" data-page=${currentPage + 1}>
-          <span aria-hidden="true">&raquo;</span>
-          <span class="sr-only"></span>
+        <a class="page-link ${
+          currentPage === array[array.length - 1] ? 'disabled' : 'js-page-link'
+        }" aria-label="Next" data-page=${currentPage + 1}>
+          &raquo;
         </a>
       </li>
     </ul>
