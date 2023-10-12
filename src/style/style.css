@@ -20,6 +20,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 img {
   display: block;
 }
@@ -175,6 +179,10 @@ h2 {
   line-height: 20px; /* 142.857% */
 }
 
+.movie-list {
+  margin-bottom: 40px;
+}
+
 .movie-item {
   display: flex;
   align-items: center;
@@ -266,4 +274,107 @@ h2 {
   color: var(--secondary-color);
   font-size: 14px;
   line-height: 20px; /* 142.857% */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.page-link.current {
+  background-color: #e9ecef;
+}
+
+.page-link:hover {
+  color: #0056b3;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.page-link:focus {
+  z-index: 2;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.page-link:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.page-item:last-child .page-link {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: auto;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+/* Style loader */
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: '';
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color: #7449f5;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
 }
