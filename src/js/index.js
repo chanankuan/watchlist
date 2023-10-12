@@ -59,9 +59,10 @@ async function handleSearch(event) {
 
 async function onPage(event) {
   let page = event.target.dataset.page;
-  if (page === '...' || !event.target.classList.contains('page-link')) {
+  if (page === '...' || !event.target.classList.contains('js-page-link')) {
     return;
   }
+
   page = Number(page);
 
   try {
