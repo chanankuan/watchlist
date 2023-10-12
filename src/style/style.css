@@ -295,10 +295,6 @@ h2 {
   border: 1px solid #dee2e6;
 }
 
-.page-link.current {
-  background-color: #e9ecef;
-}
-
 .page-link:hover {
   color: #0056b3;
   text-decoration: none;
@@ -327,14 +323,14 @@ h2 {
   border-bottom-right-radius: 0.25rem;
 }
 
-.page-item.active .page-link {
+.page-link.active {
   z-index: 1;
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
 }
 
-.page-item.disabled .page-link {
+.page-link.disabled {
   color: #6c757d;
   pointer-events: none;
   cursor: auto;
