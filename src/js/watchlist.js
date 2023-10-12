@@ -1,7 +1,7 @@
-import { renderMovieList } from './helper';
+import { renderMovieList } from './render';
 import { getMovieDetails } from './api';
 import { KEY_LS } from './refs';
-import removeFromfavorite from './removeMovie';
+import { removeFromfavorite } from './removeMovie';
 
 const favMovieListElement = document.querySelector('.fav-movie-list');
 const isEmpty = document.querySelector('.is-empty');
