@@ -1,8 +1,8 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { KEY_LS } from './refs';
-import { setToLocalStorage } from './helper';
+import { setToLocalStorage } from '../utils/appUtils';
 
-export default function addToFavorite(event) {
+export function addToFavorite(event) {
   const watchList = JSON.parse(localStorage.getItem(KEY_LS)) || [];
   const movieId = event.target.dataset.id;
 
