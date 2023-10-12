@@ -27,8 +27,10 @@ async function handleSearch(event) {
     return;
   }
 
-  searchValue = userSearch.value.split(' ').join('+');
+  defaultImage.classList.add('hidden');
   loader.classList.remove('hidden');
+
+  searchValue = userSearch.value.split(' ').join('+');
   try {
     const response = await getMovieList(searchValue, page);
     if (response.Error === 'Movie not found!') {
@@ -37,17 +39,15 @@ async function handleSearch(event) {
       return;
     }
 
-    const totalPages = Math.ceil(response.totalResults / limit);
-
-    let array = returnPaginationRange(totalPages, page);
-    pagination.innerHTML = renderPagination(page, array);
-    pagination.addEventListener('click', onPage);
-
     const movieIds = response.Search.map(item => item.imdbID);
     const movieList = await getMovieDetails(movieIds);
 
-    defaultImage.classList.add('hidden');
     movieListElement.innerHTML = renderMovieList(movieList);
+
+    const totalPages = Math.ceil(response.totalResults / limit);
+    let array = returnPaginationRange(totalPages, page);
+    pagination.innerHTML = renderPagination(page, array);
+    pagination.addEventListener('click', onPage);
 
     movieListElement.addEventListener('click', handleAddRemove);
     loader.classList.add('hidden');
