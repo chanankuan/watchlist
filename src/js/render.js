@@ -13,6 +13,14 @@ export function renderMovieList(arr) {
         isSaved = true;
       }
 
+      // console.log(item.Plot.length);
+      // let plot = item.Plot.length > 153 ? `${item.Plot.split()}`
+      // let plot;
+
+      // if (item.Plot.length > 153) {
+      //   let
+      // }
+
       return `
       <li class="movie-item">
         <div class="movie-poster">
@@ -48,6 +56,32 @@ export function renderMovieList(arr) {
     .join('');
 }
 
-export function setToLocalStorage(list) {
-  localStorage.setItem(KEY_LS, JSON.stringify(list));
+export function renderPagination(currentPage, array) {
+  return `
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" aria-label="Previous" data-page=${currentPage - 1}>
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only"></span>
+        </a>
+      </li>
+      ${array
+        .map(
+          value => `
+          <li class="page-item">
+            <a class="page-link ${
+              currentPage === value ? 'current' : ''
+            }" data-page="${value}">${value}</a>
+          </li>
+        `
+        )
+        .join('')}
+      <li class="page-item">
+        <a class="page-link" aria-label="Next" data-page=${currentPage + 1}>
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only"></span>
+        </a>
+      </li>
+    </ul>
+  `;
 }
