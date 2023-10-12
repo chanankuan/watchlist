@@ -5,10 +5,11 @@ import { BASE_URL, apiKey } from './refs';
 
 axios.defaults.baseURL = BASE_URL;
 
-export async function getMovieList(searchQuery) {
+export async function getMovieList(searchQuery, page = 2) {
   const params = new URLSearchParams({
     apikey: apiKey,
     s: searchQuery,
+    page: page,
   });
 
   const response = await axios.get('/', { params });
