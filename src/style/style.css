@@ -386,6 +386,7 @@ h2 {
 
 .expand-button {
   appearance: none;
+  cursor: pointer;
 }
 
 .expand-button::before {
