@@ -44,6 +44,17 @@ async function handleSearch(event) {
 
     movieListElement.innerHTML = renderMovieList(movieList);
 
+    const paragraphs = document.querySelectorAll('.movie-plot');
+
+    paragraphs.forEach(p => {
+      if (p.scrollHeight > p.clientHeight) {
+        p.insertAdjacentHTML(
+          'afterend',
+          '<input type="checkbox" class="expand-button" />'
+        );
+      }
+    });
+
     const totalPages = Math.ceil(response.totalResults / limit);
     let array = returnPaginationRange(totalPages, page);
     pagination.innerHTML = renderPagination(page, array);
