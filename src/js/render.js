@@ -13,14 +13,6 @@ export function renderMovieList(arr) {
         isSaved = true;
       }
 
-      // console.log(item.Plot.length);
-      // let plot = item.Plot.length > 153 ? `${item.Plot.split()}`
-      // let plot;
-
-      // if (item.Plot.length > 153) {
-      //   let
-      // }
-
       return `
       <li class="movie-item">
         <div class="movie-poster">
