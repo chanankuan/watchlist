@@ -6,7 +6,7 @@
 
 ## Live Demo
 
-You can view the live demo of the "Movie Watchlist" app [here](https://watchlist-eta.vercel.app/).
+You can view the live demo of the "Movie Watchlist" app [here](https://watchlist-mauve-gamma.vercel.app/).
 
 ## Project Overview
 
@@ -49,4 +49,10 @@ During the development of the "Movie Watchlist" project, the following skills an
 
 1. REST API: Implementation of a RESTful API in JavaScript to fetch movie data from the OMDB API.
 
-2. Asynchronous functions
+2. Asynchronous functions.
+
+3. Custom pagination.
+
+4. Using different libraries such as notiflix, lodash, axios.
+
+5. Vite configuration for deployment on Vercel.
