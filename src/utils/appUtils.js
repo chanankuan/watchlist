@@ -1,4 +1,5 @@
 import range from 'lodash/range';
+import { KEY_LS } from '../js/refs';
 
 export function returnPaginationRange(totalPage, page) {
   let siblings = 1;
