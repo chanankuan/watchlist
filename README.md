@@ -2,7 +2,7 @@
 
 "Movie Watchlist" is a solo project aimed at practicing RESTful API implementation. It is a movie watchlist app built using vanilla JavaScript, HTML, and CSS.
 
-<img src="https://github.com/chanchik96/watchlist/blob/main/public/preview-1.png" width="auto" height="580"> <img src="https://github.com/chanchik96/watchlist/blob/main/public/preview-2.png" width="auto" height="580"><img src="https://github.com/chanchik96/watchlist/blob/main/public/preview-3.png" width="auto" height="580">
+<img src="https://github.com/chanchik96/watchlist/blob/main/public/preview-1.png" width="auto" height="400"> <img src="https://github.com/chanchik96/watchlist/blob/main/public/preview-2.png" width="auto" height="400"><img src="https://github.com/chanchik96/watchlist/blob/main/public/preview-3.png" width="auto" height="400">
 
 ## Live Demo
 
