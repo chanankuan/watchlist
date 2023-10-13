@@ -43,6 +43,7 @@ async function handleSearch(event) {
     const movieList = await getMovieDetails(movieIds);
 
     movieListElement.innerHTML = renderMovieList(movieList);
+    movieListElement.addEventListener('click', handleAddRemove);
 
     const paragraphs = document.querySelectorAll('.movie-plot');
 
@@ -60,7 +61,6 @@ async function handleSearch(event) {
     pagination.innerHTML = renderPagination(page, array);
     pagination.addEventListener('click', onPage);
 
-    movieListElement.addEventListener('click', handleAddRemove);
     loader.classList.add('hidden');
   } catch (error) {
     console.error(error);
@@ -85,6 +85,17 @@ async function onPage(event) {
 
     movieListElement.innerHTML = renderMovieList(movieList);
     movieListElement.addEventListener('click', handleAddRemove);
+
+    const paragraphs = document.querySelectorAll('.movie-plot');
+
+    paragraphs.forEach(p => {
+      if (p.scrollHeight > p.clientHeight) {
+        p.insertAdjacentHTML(
+          'afterend',
+          '<input type="checkbox" class="expand-button" />'
+        );
+      }
+    });
 
     pagination.innerHTML = renderPagination(page, array);
     window.scrollTo({ top: 0 });
